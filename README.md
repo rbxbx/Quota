@@ -1,4 +1,4 @@
-# quota2
+# quota
 
 FIXME
 
