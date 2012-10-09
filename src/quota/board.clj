@@ -10,7 +10,7 @@
 (def base
   "Basic record query for board"
   (-> (db/select* boards)
-    (db/fields :name :created_at)
+    (db/fields :id :name :created_at)
     (db/order :created_at)))
 
 (defn all []
@@ -33,12 +33,9 @@
   [attr value]
   (db/exec (where { attr value })))
 
-(defn find-by-id
-  "Finds a board by id"
-  [id]
-  (first (find-by :id id)))
-
-(defn find-by-name
+(defn find-with-quotes
   "Finds a board by name"
-  [name]
-  (first (find-by :name name)))
+  [id]
+  (first (db/select boards
+                    (db/with quotes)
+                    (db/where {:id id}))))

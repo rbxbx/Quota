@@ -7,7 +7,7 @@
 (def base
   "Basic record query for quotes"
   (-> (db/select* quotes)
-    (db/fields :body :created_at)
+    (db/fields :id :body :created_at)
     (db/order :created_at)))
 
 (defn all []

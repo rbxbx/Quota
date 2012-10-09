@@ -2,6 +2,7 @@
   :description "An Online Quoteboard"
   :url "http://example.com/FIXME"
   :dependencies [[org.clojure/clojure "1.4.0"]
+                 [ring-json-response "0.2.0" :exclusions [ring/ring-core]]
                  [korma "0.3.0-beta9"]
                  [sqlitejdbc "0.5.6"]
                  [compojure "1.1.1"]]

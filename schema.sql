@@ -6,7 +6,7 @@ CREATE TABLE boards(
 
 CREATE TABLE quotes(
 	id         INTEGER PRIMARY KEY,
-	board_id   INTEGER,
+	boards_id  INTEGER,
 	body       TEXT,
 	created_at DATETIME
 );
