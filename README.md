@@ -1,6 +1,6 @@
 # quota
 
-FIXME
+An Online Quoteboard
 
 ## Prerequisites
 
@@ -9,6 +9,9 @@ You will need [Leiningen][1] 1.7.0 or above installed.
 [1]: https://github.com/technomancy/leiningen
 
 ## Running
+To populate the schema
+
+    sqlite3 quotes_development.db < schema.sql
 
 To start a web server for the application, run:
 
@@ -16,4 +19,4 @@ To start a web server for the application, run:
 
 ## License
 
-Copyright © 2012 FIXME
+Copyright © 2012
