@@ -1,13 +1,6 @@
 (ns quota.quote
-  (:use korma.db)
+  (:use quota.persistence)
   (:require [korma.core :as db]))
-
-(defdb development { :db "quota_development.db"
-                     :classname "org.sqlite.JDBC"
-                     :subprotocol "sqlite"
-                     :subname "quota_development.db"
-                     :username "root"
-                     :password "" })
 
 (db/defentity quotes)
 
@@ -33,7 +26,7 @@
 (defn create
   "Creates a new entry given an attribute map"
   [attributes]
-  (let [[now java.util.Date.]
-        [attrs (assoc attributes {:created_at now})]]
+  (let [now (java.util.Date.)
+        attrs (assoc attributes :created_at now)]
     (db/insert quotes
              (db/values attrs))))
