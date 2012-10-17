@@ -14,6 +14,10 @@
          (json-response (:quotes board))
          []))
 
+  (GET "/boards/:id/quotes/random" [id]
+       (if-let [board (board/find-with-quotes id)]
+         (json-response (rand-nth (:quotes board)))))
+
   (POST "/boards/:name/quotes" [name body]
         (if-let [board (board/find-by :name name)]
           (let [attrs { :body body :boards_id (:id board) }]
