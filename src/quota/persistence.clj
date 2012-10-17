@@ -12,9 +12,7 @@
         [user password] (clojure.string/split user-info #":") ]
     {:classname "org.postgresql.Driver"
      :subprotocol (.getScheme uri)
-     :subname (str "//" host
-                   (if (= -1 port) "" (str ":" port))
-                   path)
+     :subname (str "//" host ":" port "/" path)
      :user user
      :password password}))
 
