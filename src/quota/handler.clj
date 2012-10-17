@@ -1,6 +1,7 @@
 (ns quota.handler
   (:use compojure.core)
-  (:use [ring.util.json-response :only [json-response]])
+  (:use [ring.util.json-response :only [json-response]]
+        [ring.adapter.jetty :only [run-jetty]])
   (:require [compojure.handler :as handler]
             [compojure.route :as route]
             [quota.quote :as quote]
@@ -33,3 +34,10 @@
 
 (def app
   (handler/site app-routes))
+
+(defn start [port]
+    (defonce server (run-jetty (var app) {:port port :join? false})))
+
+(defn -main []
+    (let [port (Integer. (or (System/getenv "PORT") 8080))]
+          (start port)))
