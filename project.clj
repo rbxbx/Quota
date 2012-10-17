@@ -4,7 +4,7 @@
   :dependencies [[org.clojure/clojure "1.4.0"]
                  [ring-json-response "0.2.0" :exclusions [ring/ring-core]]
                  [korma "0.3.0-beta9"]
-                 [sqlitejdbc "0.5.6"]
+                 [postgresql/postgresql "8.4-702.jdbc4"]
                  [compojure "1.1.1"]]
   :plugins [[lein-ring "0.7.3"]]
   :ring {:handler quota.handler/app}
